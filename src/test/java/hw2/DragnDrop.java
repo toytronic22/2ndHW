@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Condition.*;
 
 public class DragnDrop {
     @Test
-    void DnDTest(){
+    void dndTest(){
         Configuration.holdBrowserOpen = true;
         //Откройте https://the-internet.herokuapp.com/drag_and_drop
         open("https://the-internet.herokuapp.com/drag_and_drop");
@@ -15,6 +15,7 @@ public class DragnDrop {
         $("[id=column-a]").dragAndDropTo("[id=column-b]");;
         //Проверьте, что прямоугольники действительно поменялись
         $("[id=column-a]").shouldHave(text("B"));
+        $("[id=column-b]").shouldHave(text("A"));
         //В Selenide есть команда $(element).dragAndDrop($(to-element)), проверьте работает ли тест, если использовать её вместо actions()
 
     }
